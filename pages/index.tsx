@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyles from '../components/GlobalStyles';
 import questions from '../questions.json';
@@ -6,22 +6,26 @@ import Poll from '../components/Poll';
 
 const IndexPage = styled.div``;
 
-export default () => (
+const App = () => {
+  const [selectedAnswer, setSelectedAnswer] = useState('');
+  return(
   <IndexPage>
-    <GlobalStyles />
-    <h1>Fullstack.io React Poll Challenge</h1>
+    <GlobalStyles 
+    selectedAnswer={selectedAnswer}
+    />
+    <img src={require('../doc/react-poll-challenge.png')} className="banner" />
     <p>
-      Here is some text that is on the page in a paragraph tag. The poll will
-      appear within this context below.
+      I would like to make a pan about philosophy ... but I Kant 😂
     </p>
-    <Poll qandas={questions} />
+    <Poll qandas={questions} selectedAnswer={selectedAnswer} setSelectedAnswer={setSelectedAnswer} />
     <p>
-      Here is the rest of the text on the page. We just have something down here
-      for context to see it in.
+      A philosopher is a person who knows less and less about more and more, until they know nothing about everything
     </p>
   </IndexPage>
-);
+  )
+};
 
+export default App;
 /**
  * TIPS:
  *

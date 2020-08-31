@@ -10,5 +10,16 @@ export type QandA = {
   answers: Answer[];
 };
 export type QandAsDocument = {
-  questions: QandA[];
+  questions?: QandA[];
 };
+export type AnswerDetails = { 
+  answer: Answer, 
+  totalVotes: number, 
+  handleClickAnswer: Object, 
+  selectedAnswer: string, 
+  highestVote: number
+};
+
+export type Styles = {
+  selectedAnswer: string;
+}
